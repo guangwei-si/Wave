@@ -1,0 +1,20 @@
+function Y = MaxcurrBoth(A1,B1,window_size, Max_DeltaT)
+% calculate the maxCorr and deltaT in both directions for input time serise A1 and B1
+max_corF=0;
+shift_deltaT=0;
+
+Y1=Maxcurr(B1,A1,window_size, Max_DeltaT);
+Y2=Maxcurr(A1,B1,window_size, Max_DeltaT);
+
+if Y2(1)>Y1(1)
+      max_corF=Y2(1);
+      shift_deltaT=-(Y2(2)-1);
+else
+    max_corF=Y1(1);
+    shift_deltaT=Y1(2)-1;
+end
+
+Y(1)=max_corF;
+Y(2)=shift_deltaT;
+
+end
