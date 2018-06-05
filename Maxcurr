@@ -1,0 +1,25 @@
+function Y = Maxcurr(A1,B1,window_size, Max_DeltaT)
+    % calculate the max correlation coefficient MaxCor and deltaT (only shift B1 forwards)
+    
+          Y = [0 0];
+     temp_MaxCor = 0;
+     temp_deltaT = 0;
+     A_zero=zeros(window_size,1);
+     A_zero=A1(1:window_size);
+     
+     for i = 1:Max_DeltaT
+         
+         B_zero = B1 (i:i+window_size-1);
+         temp = corrcoef(A_zero,B_zero);
+       
+         if temp(1,2)>temp_MaxCor
+             temp_MaxCor=temp (1,2);
+             temp_deltaT=i;
+         end
+          
+     end
+     
+     Y(1)=temp_MaxCor;
+     Y(2)=temp_deltaT;
+     
+end
