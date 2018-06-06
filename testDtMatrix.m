@@ -20,7 +20,7 @@ for dx = -winHalfSize:winHalfSize
     for dy = -winHalfSize:winHalfSize
         if ~(dx==0 && dy==0)
             newx = dx + x;  newy = dy + y;
-            if mask(newx, newy) == 1
+            if maskFg(newx, newy) == 1
                 signalCmp = squeeze(dataStack(newx, newy, tRange));
                 d = finddelay(zscore(signal), zscore(signalCmp)); % find the time delay
                 dtM(dx + winHalfSize + 1, dy+winHalfSize+1) = d;
@@ -32,7 +32,9 @@ for dx = -winHalfSize:winHalfSize
 end
 %% show the dt matrix
 figure; 
-imagesc(dtM,'AlphaData',~isnan(dtM)) 
+imagesc(dtM,'AlphaData',~isnan(dtM));
 xticklabels(string(-winHalfSize:winHalfSize)); 
 yticklabels(string(-winHalfSize:winHalfSize));colorbar;
 title(['x=', num2str(x), ',y=', num2str(y), ',t=', num2str(t)]);
+
+savefig(gcf, fullfile('Results', 'dtMatrixExample.fig'));
