@@ -1,17 +1,16 @@
-function mask = MarkForeground(dataStack)
+function mask = MarkForeground(dataStack, threshold)
 %label each pixel as foreground (1) or background (0).
 % thresholding the maxproejction - minprojection.
 
 maxP = max(dataStack, [], 3); % max projection
 minP = min(dataStack, [], 3); % min projection
-medianP = median(dataStack,  3);
 
 diff = maxP- minP;  % differnece
 
 mask = zeros(size(diff)); %initialize mask
 
-
-threshold =  3*(medianP - minP) + medianP;
+median
+threshold = median(dataStack,  3) - 
 
 mask(diff > threshold) = 1; % differences larger than a threshold, set to 1
 

@@ -2,5 +2,6 @@ SetParam;
 
 dataStack = LoadFile(p.fileName);   %load the movie file
 
-maskF = MarkForeg(dataStack, p.threshold); % make the foreground
+maskFg = MarkForeground(dataStack); % make the foreground
 
+maskBump = MarkBump(dataStack, maskFg);
