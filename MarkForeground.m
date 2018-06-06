@@ -11,7 +11,7 @@ diff = maxP- minP;  % differnece
 mask = zeros(size(diff)); %initialize mask
 
 
-threshold =  3*(medianP - minP) + medianP;
+threshold =  2*(medianP - minP) + medianP;
 
 mask(diff > threshold) = 1; % differences larger than a threshold, set to 1
 
