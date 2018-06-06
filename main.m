@@ -2,6 +2,7 @@ SetParam;
 
 dataStack = LoadFile(p.fileName);   %load the movie file
 
-maskFg = MarkForeground(dataStack); % make the foreground
+maskFg = MarkForeground(dataStack); % mark the foreground
 
-maskBump = MarkBump(dataStack, maskFg);
+maskBump = MarkBump(dataStack, maskFg); % mark the burst time point for each pixel
+
