@@ -1,4 +1,4 @@
-function dataStack = loadFile(fileName)
+function dataStack = LoadFile(fileName)
 
 if nargin == 0 % if file name not specified
     fileName = fullfile('Data', 'sample.avi'); % sample file

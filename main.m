@@ -1,5 +1,6 @@
-setParam;
+SetParam;
 
-dataStack = loadFile(p.fileName);   %load the movie file
+dataStack = LoadFile(p.fileName);   %load the movie file
 
-% plot the flux
+maskF = MarkForeg(dataStack, p.threshold); % make the foreground
+
